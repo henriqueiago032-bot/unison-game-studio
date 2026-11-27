@@ -102,8 +102,13 @@
     .game-card:hover { transform: translateY(-5px); border-color: #b77aff; box-shadow: 0 15px 40px #6d2ab333; }
     .game-card:before { content: ""; position: absolute; width: 190px; height: 190px; border-radius: 50%; right: -55px; top: -45px; background: radial-gradient(circle, #913dff66, transparent 68%); }
     .game-card .number { color: #b985ff; font-size: 11px; letter-spacing: .2em; font-weight: 900; }
-    .game-card h3 { font-size: 24px; margin: 58px 0 8px; position: relative; }
-    .game-card p { color: #aaa1b8; font-size: 13px; line-height: 1.6; max-width: 260px; position: relative; }
+    .game-card h3 { font-size: 24px; margin: 18px 0 8px; position: relative; }
+    .game-card p { color: #aaa1b8; font-size: 13px; line-height: 1.6; max-width: 360px; position: relative; }
+    .game-card.featured { padding: 24px; }
+    .game-card-content { position: relative; z-index: 1; }
+    .game-video { width: min(270px, 100%); aspect-ratio: 9 / 16; object-fit: cover; display: block; border-radius: 12px; border: 1px solid rgba(190, 139, 255, .42); background: #05040a; box-shadow: 0 0 28px rgba(139, 50, 255, .28); }
+    .game-card-feature { display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 28px; align-items: center; position: relative; z-index: 1; }
+    .video-label { display: inline-block; margin-top: 12px; color: var(--purple-bright); font-size: 10px; letter-spacing: .18em; font-weight: 800; text-transform: uppercase; }
     .tag { display: inline-block; border: 1px solid #8750bd88; color: #d2b2ff; border-radius: 99px; padding: 6px 10px; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
     .coming { background: linear-gradient(120deg, rgba(142,70,221,.14), rgba(255,255,255,.02)); border: 1px dashed #8355aa; border-radius: 14px; padding: 30px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
     .coming p { color: var(--muted); margin-bottom: 0; font-size: 13px; }
@@ -129,12 +134,15 @@
       .game-grid { grid-template-columns: 1fr; }
       .game-card { min-height: 210px; }
       .game-card h3 { margin-top: 40px; }
+      .game-card-feature { grid-template-columns: 1fr; gap: 20px; }
+      .game-video { width: min(100%, 260px); margin: 0 auto; }
+      .video-label { display: block; text-align: center; }
       .section { padding: 55px 0; }
       .section-head, .coming { align-items: flex-start; flex-direction: column; }
       .about-grid { grid-template-columns: 1fr; }
       .hero-note { gap: 16px; }
     }
-  
+
     /* Espaço publicitário responsivo — reservado, sem carregar scripts de terceiros. */
     .projects-with-ad{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start}
     .projects-with-ad .game-grid{min-width:0}
@@ -197,12 +205,23 @@
         </div>
         <div class="projects-with-ad">
           <div class="game-grid" style="grid-template-columns: minmax(0, 1fr);">
-            <article class="game-card" style="min-height:245px;">
-              <span class="number">PROJETO 001 / EM DESENVOLVIMENTO</span>
-              <h3>ARENA DOS PECADOS</h3>
-              <p>Um universo de guerreiros com identidades e poderes próprios. Monte sua equipe, descubra histórias e prepare-se para entrar na arena. O projeto ainda está em desenvolvimento.</p>
-              <span class="tag">RPG • AÇÃO • ANIME</span>
-              <span class="tag" style="margin-left:8px">AINDA NÃO LANÇADO</span>
+            <article class="game-card featured" style="min-height:245px;">
+              <div class="game-card-feature">
+                <div class="game-card-content">
+                  <span class="number">PROJETO 001 / EM DESENVOLVIMENTO</span>
+                  <h3>ARENA DOS PECADOS</h3>
+                  <p>Um universo de guerreiros com identidades e poderes próprios. Monte sua equipe, descubra histórias e prepare-se para entrar na arena. O projeto ainda está em desenvolvimento.</p>
+                  <span class="tag">RPG • AÇÃO • ANIME</span>
+                  <span class="tag" style="margin-left:8px">AINDA NÃO LANÇADO</span>
+                </div>
+                <div>
+                  <video class="game-video" controls preload="metadata" playsinline poster="assets/images/arena-dos-pecados-poster.jpg">
+                    <source src="assets/videos/arena-dos-pecados.mp4" type="video/mp4">
+                    Seu navegador não suporta a reprodução de vídeos.
+                  </video>
+                  <span class="video-label">TEASER OFICIAL • 5 SEGUNDOS</span>
+                </div>
+              </div>
             </article>
           </div>
           <!-- Espaço reservado para publicidade. Nenhum script externo é executado aqui. -->
